@@ -1,0 +1,22 @@
+<div class="login-container">
+    <div class="row justify-content-center">
+        <div class="col-6 ">
+            <div class="card">
+                <app-login-header (isLoginEvent)="getLoginType($event)"></app-login-header>
+
+                <div class="card-body">
+                    <div *ngIf="IsLogin">
+                        <app-form-login></app-form-login>
+
+                    </div>
+
+                    <div *ngIf="!IsLogin">
+                        <app-form-signup></app-form-signup>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

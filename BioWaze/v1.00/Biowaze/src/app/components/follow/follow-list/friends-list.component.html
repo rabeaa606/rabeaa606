@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col">
+
+        <div *ngIf="!followType" class="search-results" infiniteScroll [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+            <div class="scrollbar scrollbar-rare-wind">
+                <app-friend-card *ngFor="let friend of friendsList; let i = index" [friend]=friend
+                    [followType]=followType (freiendRemove)="onReomve($event,i)">
+                </app-friend-card>
+            </div>
+        </div>
+
+        <div *ngIf="followType" class="search-results" infiniteScroll [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+            <div class="scrollbar scrollbar-rare-wind">
+                <app-friend-card *ngFor="let friend of friendsList; let i = index" [friend]=friend
+                    [followType]=followType (freiendRemove)="onReomve($event,i)">
+                </app-friend-card>
+            </div>
+        </div>
+
+    </div>
+</div>

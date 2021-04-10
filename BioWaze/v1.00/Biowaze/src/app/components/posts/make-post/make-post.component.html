@@ -1,0 +1,73 @@
+<div class="shadow-lg d-grid gap-2 rounded-pill ">
+    <button type="button" class="btn btn-secondary rounded-pill" data-toggle="modal" data-target="#postModal">
+        What are you thinking?
+    </button>
+</div>
+
+<div class="modal fade " id="postModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content ">
+            <div class="modal-header shadow">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create a post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                <div class="modal-body  shadow">
+                    <div class="mb-3">
+
+                        <label for="forpostinput" class="form-label">
+                            <span class="material-icons">
+                                account_circle
+                            </span>
+                            username
+                        </label>
+                        <textarea class="form-control  rounded shadow-lg" formControlName="postContent"
+                            id="exampleFormControlTextarea1" rows="5" placeholder="What are you thinking? "></textarea>
+
+                        <div class="text-center">
+
+                            <li class="list-inline-item">
+                                <span>Tags: </span>
+                                <span class="badge badge-dark" *ngFor="let tag of tagsList">{{tag?.tag}}</span>
+                            </li>
+                        </div>
+
+                        <div class="container">
+
+                            <div class="row">
+                                <div class="row">
+                                    <label for="psw-repeat"><b>Add Tags :</b></label>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-9">
+                                        <input type="text" class="rounded shadow w-100" formControlName="postTags"
+                                            #tagInput placeholder="add tags">
+                                    </div>
+                                    <div class="col-2 ">
+                                        <button type="button"
+                                            class="btn btn-outline-dark rounded-pill shadow border border-white"
+                                            (click)="addNewTag(tagInput.value)">add</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer shadow">
+                    <button type="submit"
+                        class="btn btn-outline-dark rounded-pill shadow border border-white ">Posting</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="main-posts-panel text-center ">
+    <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+        (scrolled)="onScroll()">
+        <div class="scrollbar scrollbar-rare-wind">
+            <app-post *ngFor="let post of postssList" [post]=post></app-post>
+        </div>
+    </div>
+</div>

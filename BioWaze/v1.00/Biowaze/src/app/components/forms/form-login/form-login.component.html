@@ -1,0 +1,30 @@
+<form #loginForm="ngForm" (ngSubmit)="onloginSubmit(loginForm)">
+    <h3>Loging In</h3>
+    <hr>
+
+    <label for="uname"><b>Username</b></label>
+    <input type="text" class="form-control" placeholder="Enter username" [(ngModel)]="loginInput.username" name="uname"
+        id="uname" #uname="ngModel" required pattern=".{8,}">
+
+    <div [hidden]="uname.valid || uname.pristine" class="alert alert-danger">
+        username is required - 8 or more characters
+    </div>
+
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="loginInput.password"
+        name="password" id="password" #password="ngModel" required pattern=".{8,}">
+
+    <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+        password is required - 8 or more characters
+    </div>
+
+    <div *ngIf="!vlaidlogin" class="alert alert-danger">
+        The username / password is invalid, try again
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">LogIn</button>
+
+    <!-- <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label> -->
+</form>

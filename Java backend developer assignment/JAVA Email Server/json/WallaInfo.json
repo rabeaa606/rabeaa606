@@ -1,0 +1,7 @@
+{
+  "Server_address": "smtp.walla.co.il",
+  "Username": "admin",
+  "Password": "admin",
+  "Email_postfix": "@walla.co.il"
+
+}

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+        <div class="col-md-2 align-self-center">
+            <button *ngIf="isLiked" type="button" class="btn btn-dark rounded shadow-sm border border-white"
+                (click)="deslikeClicked()">
+                <span class="material-icons ">
+                    thumb_up
+                </span>
+            </button>
+
+            <button *ngIf="!isLiked" type="button" class="btn btn-outline-dark rounded shadow-sm border border-white"
+                (click)="likeClicked()">
+                <span class="material-icons ">
+                    thumb_up
+                </span>
+            </button>
+
+        </div>
+
+        <div class="col-md-10 center-block">
+            <div class="scrolling-wrapper">
+                <div class="scrollmenu rounded-pill shadow-lg">
+                    <a *ngFor="let like of postLikesList" [routerLink]="['/main-page/profile-page',like.username]"
+                        routerLinkActive=" active">
+                        {{like.username}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

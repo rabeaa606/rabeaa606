@@ -1,0 +1,17 @@
+<div class="row text-center  ">
+    <div class=" border-bottom ">
+        <p class="text-center font-italic text-muted ">Biowaze Users
+        </p>
+    </div>
+
+    <div class="row main-users-panel ">
+        <div class="search-results" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()">
+            <div class="scrollbar scrollbar-rare-wind">
+                <user-card *ngFor="let user of usersList; let i = index" [user]=user
+                    (newLikefollowPressed)="onNewFollow($event,i)">
+                </user-card>
+            </div>
+        </div>
+    </div>
+</div>

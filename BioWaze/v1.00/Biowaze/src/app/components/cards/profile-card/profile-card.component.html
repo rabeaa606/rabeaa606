@@ -1,0 +1,59 @@
+<div class="container p-3 mb-2 bg-dark text-white shadow user-profile-card body">
+    <div class="row d-flex justify-content-center">
+        <!-- <img class=" col-lg-4 col-md-4 img-thumbnail rounded-circle border-0 shadow"
+            src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""> -->
+    </div>
+
+
+    <div class="row text-center">
+
+        <h3 class="text-center"><strong>{{user.username}}</strong></h3>
+    </div>
+
+    <div class="row text-center">
+        <h5><strong>{{user.fname}}</strong> {{user.lname}}</h5>
+    </div>
+
+    <div class="row row-cols-2 justify-content-center">
+        <div class="col text-right"><span class="material-icons">work_outline</span></div>
+        <div class="col text-left">
+            <p class="text-justify"> {{user.job}}</p>
+        </div>
+    </div>
+    <div class="row row-cols-2 justify-content-center">
+        <div class="col text-right"><span class="material-icons">
+                mail_outline
+            </span></div>
+        <div class="col text-left">
+            <p class="text-justify"> {{user.email}}</p>
+        </div>
+    </div>
+    <div class="row row-cols-2 justify-content-center">
+        <div class="col  text-right"><span class="material-icons">
+                location_on
+            </span></div>
+        <div class="col text-left">
+            <p class="text-justify"> {{user.location}}</p>
+        </div>
+    </div>
+    <div class="row row-cols-2 justify-content-center">
+        <div class="col text-right"><span class="material-icons">
+                date_range
+            </span></div>
+        <div class="col text-left">
+            <p class="text-justify">{{user.dateofBirth| date:'shortDate'}}</p>
+        </div>
+    </div>
+
+
+    <div class="row text-center">
+
+        <div *ngIf="!IsCurrentUser && !isInFollowing ">
+            <button type="button" class="btn btn-primary text-center  rounded shadow-sm  border-0"
+                (click)="likeClicked()">
+                Follow</button>
+            <!-- (click)="FollowClicked()" -->
+        </div>
+    </div>
+
+</div>

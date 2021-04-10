@@ -1,0 +1,16 @@
+<div>
+    <div class="row">
+        <app-profile-card [IsCurrentUser]=currentUserRequested [isInFollowing]=isInFollowing [user]=requestedUser>
+        </app-profile-card>
+    </div>
+    <div class="row" *ngIf="currentUserRequested && posts">
+
+        <app-panel-posts [posts]=posts></app-panel-posts>
+    </div>
+
+    <div class="row" *ngIf="!currentUserRequested && posts">
+
+        <app-list-post [posts]=Userposts></app-list-post>
+    </div>
+
+</div>

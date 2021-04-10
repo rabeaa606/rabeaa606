@@ -1,0 +1,101 @@
+<div class="container shadow-sm post-view  ">
+    <div class="row">
+
+        <div class="col-sm-2  col-2 post-user-img  ">
+            <a [routerLink]="['/main-page/profile-page',postCard.username]" routerLinkActive="active" rel="no-refresh"
+                class="alert-light">
+
+                <img src={{this.postCard.userimage}}
+                    class="img-thumbnail rounded-circle border-0 shadow align-self-center ">
+
+            </a>
+        </div>
+        <div class="col ">
+            <div class="row">
+
+                <a [routerLink]="['/main-page/profile-page',postCard.username]" routerLinkActive="active"
+                    rel="no-refresh" class="text-decoration-none p-3 mb-2 bg-transparent text-dark alert-light">
+                    <h4 class="text-start">{{postCard.username}}</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col  d-flex flex-wrap">
+            <p class="text-center alert alert-light shadow-sm post-content">
+                {{(showMore) ? postCard.content : postCard.content | slice:0:300}} <span *ngIf="!showMore">...</span>
+                <a class="alert-link" href="javascript:;" *ngIf="!showMore" (click)="showMore=true">[Show More]</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="row d-flex flex-wrap">
+
+        <div class="text-center">
+
+            <li class="list-inline-item">
+                <span>Tags: </span>
+                <span class="badge badge-dark" *ngFor="let posttag of postCard.tags ">{{posttag.tag}}</span>
+            </li>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="list-inline">
+            <div class="row p-3">
+
+                <div class="col-md-6  text-md-start  text-center">
+
+                    <li class=" list-inline-item">
+                        <span>{{postCard.date | date:'shortDate'}}</span>
+                    </li>
+                    <li class=" list-inline-item">
+                        <span>{{postCard.date| date:'h:mm a'}}</span>
+                    </li>
+                </div>
+
+                <div class="col-md-3 float-right">
+
+                    <li class="list-inline-item">
+                        <button type="button" class=" btn  border-0" (click)="likesListClicked()">
+                            <span class="text-info">
+                                {{ likesList?.length || '0' }}
+                                Likes</span>
+                        </button>
+                    </li>
+                </div>
+
+                <div class="col-md-3 float-right">
+
+                    <li class="list-inline-item">
+                        <button class=" btn  border-0" type="button" (click)="commentsListClicked()">
+                            <span class="text-info">
+                                {{ postCard.comments?.length || '0' }} Comments</span>
+                        </button>
+                    </li>
+                </div>
+                <!-- <div class="col-md-2 float-left">
+
+                    <li class="list-inline-item ">
+                        <button class=" btn  border-0" type="button">
+                            <span class="text-info"> {{ postCard.shares?.length || '0' }} Shares</span>
+
+                        </button>
+                    </li>
+                </div> -->
+
+            </div>
+
+            <div *ngIf="showLikes" class="row ">
+                <app-post-likes [likesList]=likesList (newLikePressed)="postLiked($event)"></app-post-likes>
+            </div>
+
+            <div *ngIf="showComments" class="row rounded   comment">
+                <app-post-comments [comments]=comments (newComment)="postcommented($event)"></app-post-comments>
+            </div>
+
+
+        </ul>
+    </div>
+
+</div>

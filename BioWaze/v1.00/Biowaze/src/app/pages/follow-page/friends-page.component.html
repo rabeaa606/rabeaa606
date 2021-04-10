@@ -1,0 +1,20 @@
+<div class="  freinds-page-list">
+    <div class="row ">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary following-btn " (click)="followingBtn()">following</button>
+            <button type="button" class="btn btn-secondary followers-btn active"
+                (click)="followersBtn()">followers</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div *ngIf="!followType" class="friends-panel- text-center ">
+            <app-friends-list [friends]=following [type]=followingType (onRemoveFriend)=onReomveFollowing($event)>
+            </app-friends-list>
+        </div>
+        <div *ngIf="followType" class="friends-panel- text-center ">
+            <app-friends-list [friends]=followers [type]=followersType (onRemoveFriend)="onReomveFollower($event)">
+            </app-friends-list>
+        </div>
+    </div>
+</div>

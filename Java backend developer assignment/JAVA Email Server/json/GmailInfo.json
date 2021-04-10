@@ -1,0 +1,6 @@
+{
+  "Server_address":"smtp.gmail.com",
+  "Username":"admin",
+  "Password":"admin",
+  "Email_postfix":"@gmail.com"
+}

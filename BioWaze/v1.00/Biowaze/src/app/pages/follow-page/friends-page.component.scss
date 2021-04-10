@@ -1,0 +1,48 @@
+.freinds-page-list{
+    margin-top: 10px;
+    border-radius: 30px;
+    .following-btn{
+        border-radius:30px 0 0 0;
+
+    }
+    .following-btn:hover{
+font-size: larger;    
+}
+    .followers-btn{
+        border-radius: 0  30px 0 0;
+
+    }
+    .followers-btn:hover{
+        font-size: larger;   
+    }
+
+    .friends-panel {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 30px;
+    
+        .scrollbar{
+          overflow-y: scroll;
+          overflow-x: hidden;
+          height: 1000px;
+    
+        }
+    
+    
+    
+    
+    
+    .scrollbar-rare-wind::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5; }
+    
+    .scrollbar-rare-wind::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#a8edea), to(#fed6e3));
+    background-image: -webkit-linear-gradient(bottom, #a8edea 0%, #fed6e3 100%);
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); }
+      }
+
+}
+

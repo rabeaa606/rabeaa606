@@ -1,0 +1,49 @@
+<div class=" shadow profile-page-list ">
+    <div class="row profile-img  p-5">
+
+        <div class="row  justify-content-center ">
+
+            <a [routerLink]="['/main-page/profile-page',currentUser.username]" routerLinkActive="active"
+                class="text-center">
+
+
+                <img *ngIf="!this.currentUser.image" src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                    class="img-thumbnail rounded-circle border-0 shadow align-self-center ">
+                <img *ngIf="this.currentUser.image" src={{user_img}}
+                    class="img-thumbnail rounded-circle border-0 shadow align-self-center ">
+            </a>
+
+            <form [formGroup]="form" (submit)="onSubmit()" class=" col-lg-3 col-md-2 col-sm-3 col-3">
+
+                <div class="image-upload ">
+                    <label for="file-input" class="text-center">
+                        <img class="img-thumbnail rounded-circle border-0 shadow align-self-center "
+                            src="https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg" />
+                    </label>
+
+                    <input #imageInput id="file-input" type="file" accept="image/*" (change)="processFile($event)" />
+
+                    <div *ngIf="imageuploaded">
+                        <button class="btn btn-success" type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+
+        </div>
+        <div class="row  justify-content-center ">
+
+            <a [routerLink]="['/main-page/profile-page',currentUser.username]" class="text-decoration-none  text-dark ">
+                <p class="h4 text-center"> {{currentUser.username}} </p>
+            </a>
+        </div>
+
+
+
+
+        <div class="row">
+            <app-default-list></app-default-list>
+        </div>
+    </div>

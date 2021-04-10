@@ -1,0 +1,6 @@
+{
+  "Server_address": "smtp.yahoo.com",
+  "Username": "admin",
+  "Password": "admin",
+  "Email_postfix": "@yahoo.com"
+}

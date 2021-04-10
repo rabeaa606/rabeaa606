@@ -1,0 +1,41 @@
+<div class="row row-cols-1 row-cols-sm-1   row-cols-xl-3 justify-content-center userslist shadow-sm">
+
+
+    <div class="col-3 col-sm-3 col-xl-3 align-self-center justify-content-center">
+
+        <a [routerLink]="['/main-page/profile-page',userCard.username]" routerLinkActive="active"
+            class="stretched-link">
+            <img src={{userCard.image}} class=" img-thumbnail rounded-circle border-0 shadow align-self-center "> </a>
+
+    </div>
+
+    <div class=" col col-xl-6 align-self-center ">
+
+        <p class=" font-weight-bold ">
+            <a [routerLink]=" ['/main-page/profile-page',userCard.username]" routerLinkActive="active"
+                class="text-decoration-none  text-dark ">{{userCard.username}}
+            </a>
+        </p>
+
+    </div>
+
+    <div class="col  col-xl-2    align-self-center">
+
+        <button type="button" *ngIf="!isFollowClicked && !spinner" class="btn btn-primary  rounded shadow-sm  border-0"
+            (click)="followClicked()">
+            Follow
+        </button>
+        <div *ngIf="spinner" class="spinner-border text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <button type="button" *ngIf="isFollowClicked" class="btn btn-success  rounded shadow-sm  border-0"
+            (click)="followClicked()">
+            <span class="material-icons">
+                done
+            </span>
+        </button>
+
+    </div>
+
+</div>

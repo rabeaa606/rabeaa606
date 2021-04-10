@@ -1,0 +1,54 @@
+<div class="shadow-sm rounded">
+    <div class="row row-cols-1 row-cols-md-3  justify-content-center  user-img">
+
+        <div class="col-3 col-md-2 align-self-center ">
+            <div class="row justify-content-md-center ">
+                <a [routerLink]="['/main-page/profile-page',inFriend.username]" routerLinkActive="active"
+                    class="stretched-link text-center">
+                    <img src={{inFriend.image}} class="img-thumbnail rounded-circle border-0 shadow text-center"
+                        width="100%"> </a>
+            </div>
+
+        </div>
+
+        <div class="col align-self-center">
+
+
+            <h4 class="text-md-start  text-center">
+                <a [routerLink]="['/main-page/profile-page',inFriend.username]" routerLinkActive="active"
+                    class="text-decoration-none  text-dark">{{inFriend.username}}
+                </a>
+            </h4>
+
+        </div>
+        <div class="col col-md-5 align-self-center" *ngIf="followType">
+            <div class="btn-group dropleft ">
+                <button type="button" class="btn btn-outline-dark btn-lg btn-block rounded-pill text-center  "
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Remove</button>
+                <div class="dropdown-menu remove-menu rounded shadow-lg ">
+                    <a type="button" class="btn btn-danger btn-lg btn-block text-white shadow-lg rounded-pill "
+                        (click)="removeFriend(inFriend)">
+                        Remove</a>
+                    <a type="button" class="btn btn-light btn-lg btn-block shadow-lg rounded-pill">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col col-md-5 align-self-center" *ngIf="!followType">
+            <div class="btn-group dropleft ">
+                <button type="button" class="btn btn-outline-dark btn-lg btn-block rounded-pill text-center "
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">following </button>
+                <div class="dropdown-menu remove-menu rounded shadow-lg ">
+                    <a type="button" class="btn btn-danger btn-lg btn-block text-white shadow-lg rounded-pill "
+                        (click)=" removeFriend(inFriend)">Unfollow</a>
+                    <a type="button" class="btn btn-light btn-lg btn-block shadow-lg rounded-pill">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>

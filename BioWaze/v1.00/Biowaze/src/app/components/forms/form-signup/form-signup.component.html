@@ -1,0 +1,42 @@
+<form #signinForm="ngForm" (ngSubmit)="onSigninSubmit(signinForm)">
+    <h3>Signing Up</h3>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    <label for="uname"><b>Username</b></label>
+    <input type="text" class="form-control" placeholder="Enter username" [(ngModel)]="signUpInput.username" name="uname"
+        id="uname" #uname="ngModel" required pattern=".{8,}">
+
+    <div [hidden]="uname.valid || uname.pristine" class="alert alert-danger">
+        username is required - 8 or more characters
+    </div>
+    <div *ngIf="!uservalidateConfirm" class="alert alert-danger">
+        username is exist - please change it
+    </div>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="signUpInput.password"
+        name="spassword" id="spassword" #spassword="ngModel" required pattern=".{8,}">
+
+    <div [hidden]="spassword.valid || spassword.pristine" class="alert alert-danger">
+        Password is required - 8 or more characters
+    </div>
+
+    <label for="psw-repeat"><b>Confirm password</b></label>
+    <input type="password" class="form-control" placeholder="confirm password"
+        [(ngModel)]="signUpInput.confirm_password" name="confirmpassword" id="confirmpassword"
+        #confirmpassword="ngModel" required pattern=".{8,}">
+
+    <div [hidden]="confirmpassword.valid || confirmpassword.pristine" class="alert alert-danger">
+        Password is required - 8 or more characters
+    </div>
+    <div *ngIf="!passwordConfirm" class="alert alert-danger">
+        Password must be match
+    </div>
+
+    <button type="submit">SignUp</button>
+
+    <!-- <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">
+        Remember me
+    </label> -->
+</form>

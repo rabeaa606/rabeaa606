@@ -1,0 +1,135 @@
+<div class=" row justify-content-center  ">
+
+    <div class="col-6 shadow rounded text-center">
+
+        <h2>Input supplies</h2>
+        <div class=" input-conriner">
+
+            <div class="form-row">
+                <div class="col">
+
+                    <h3><span class="badge badge-secondary"> First Name</span></h3>
+                    <input type="text" [(ngModel)]="newUser.fname" name="fname" id="fname"
+                        class="form-control form-control-rounded" #fname="ngModel" required>
+                    <div *ngIf="!validFname" class="alert alert-danger">
+                        First Name is required
+                    </div>
+                </div>
+                <div class="col">
+                    <h3><span class="badge badge-secondary">Last Name</span></h3>
+                    <input type="text" [(ngModel)]="newUser.lname" name="lname" id="lname"
+                        class="form-control form-control-rounded" #lname="ngModel" required>
+                    <div *ngIf="!validLname" class="alert alert-danger">
+                        Last Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <h3><span class="badge badge-secondary"> Email</span></h3>
+                <input type="text" [(ngModel)]="newUser.email" name="email" id="email"
+                    class="form-control form-control-rounded" #emaill="ngModel" pattern="/\S+@\S+\.\S+/" required>
+                <div [hidden]=" validEmail" class="alert alert-danger">
+                    email is required
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <h3><span class="badge badge-secondary"> location</span></h3>
+                <input type="text" [(ngModel)]="newUser.location" name="location" id="location"
+                    class="form-control form-control-rounded" #location="ngModel" required>
+                <div *ngIf="!validLocation" class="alert alert-danger">
+                    location is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h3><span class="badge badge-secondary"> Job</span></h3>
+                <input type="text" [(ngModel)]="newUser.job" name="job" id="job"
+                    class="form-control form-control-rounded" #job="ngModel" required>
+
+                <div *ngIf="!validJob" class="alert alert-danger">
+                    Job is required
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="btn-group  justify-content-center    " role="group"
+                    aria-label="Basic radio toggle button group">
+                    <div class="col-lg-5 col-sm-5  rounded-circle deatail-user-img">
+                        <h5><span class="badge badge-secondary">Normal user</span></h5>
+
+                        <input type="radio" class="btn-check" name="user" id="people" autocomplete="off"
+                            [(ngModel)]="newUser.isDoctor" value="no" checked>
+                        <label class="btn  rounded-circle" for="people">
+                            <img src="../../../assets/people.jpg" class=" img-thumbnail  rounded-circle border-0 ">
+                        </label>
+                    </div>
+                    <div class="col-lg-5 col-sm-5  rounded-circle  deatail-user-img">
+                        <h5><span class="badge badge-secondary">Doctor</span></h5>
+
+                        <input type="radio" class="btn-check" name="user" id="doctor" autocomplete="off"
+                            [(ngModel)]="newUser.isDoctor" value="yes">
+                        <label class="btn  rounded-circle" for="doctor">
+                            <img src="../../../assets/doctor.jpg" class="img-thumbnail rounded-circle border-0 "
+                                alt="Nature">
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div *ngIf="!validIsDoctor" class="alert alert-danger">
+                you have to select your User details !
+            </div>
+
+            <div class="form-group">
+
+                <div class="btn-group   justify-content-center  " role="group"
+                    aria-label="Basic radio toggle button group">
+
+                    <input type="radio" class="btn-check" name="sex" id="male" autocomplete="off"
+                        [(ngModel)]="newUser.sex" value="male" checked>
+                    <label class="btn btn-outline-primary   " for="male">
+                        Male
+                    </label>
+
+                    <input type="radio" class="btn-check" name="sex" id="female" autocomplete="off"
+                        [(ngModel)]="newUser.sex" value="female">
+                    <label class="btn btn-outline-primary " for="female">
+                        Female
+                    </label>
+
+
+                </div>
+            </div>
+
+            <div *ngIf="!validSex" class="alert alert-danger">
+                you have to select your Sex !
+            </div>
+
+            <div class="form-group">
+                <h3><span class="badge badge-secondary"> date of birthday</span></h3>
+                <input type="date" [ngModel]="newUser.dateofBirth | date:'yyyy-MM-dd'"
+                    (ngModelChange)="newUser.dateofBirth = $event" name="dt" id="dt"
+                    class="form-control form-control-rounded" #dt="ngModel" required>
+                <div *ngIf="!validDate" class="alert alert-danger">
+                    you have to select your birth day date !
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <label>
+            <div class="text-muted text-center">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="sigiUp()">Sign Up</button>
+            </div>
+        </label>
+
+    </div>
+</div>
